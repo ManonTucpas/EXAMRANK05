@@ -3,6 +3,7 @@
 
 
 #include <iostream>
+#include "ATarget.hpp"
 
 
 
@@ -17,10 +18,10 @@ class ASpell
        
 
     public:
+        ASpell();
 
         ASpell(std::string const& name, std::string const& effects);
         virtual ~ASpell();
-        ASpell();
         ASpell &operator=(ASpell const& other);
         ASpell(ASpell const& cpy);
 
@@ -31,6 +32,5 @@ class ASpell
         void launch(ATarget const& ref) const;
 };
 
-#include "ATarget.hpp"
 
 #endif

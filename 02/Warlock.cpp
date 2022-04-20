@@ -10,14 +10,15 @@ Warlock::Warlock(std::string const& name, std::string const& title)
 Warlock::~Warlock()
 {
     std::cout << this->name << ": My job here is done!\n";
-    std::map<std::string, ASpell *>::iterator it = array.begin();
-    std::map<std::string, ASpell *>::iterator ite = array.end();
-    while(it != ite)
-    {
-        delete it->second;
-        it++;
-    }
-    array.clear();
+    // delete book;
+    // std::map<std::string, ASpell *>::iterator it = array.begin();
+    // std::map<std::string, ASpell *>::iterator ite = array.end();
+    // while(it != ite)
+    // {
+    //     delete it->second;
+    //     it++;
+    // }
+    
 
 
 }
@@ -38,20 +39,20 @@ void    Warlock::setTitle(std::string const& titletoset)
 
 void    Warlock::learnSpell(ASpell *ptr)
 {
-    array.insert(std::pair<std::string, ASpell *>(ptr->getName(), ptr->clone()));
+    book.learnSpell(ptr);
 }
 
 void    Warlock::forgetSpell(std::string forget)
 {
-    std::map<std::string, ASpell *>::iterator it = array.find(forget);
-    if (it != array.end())
-        delete it->second;
-    array.erase(forget);
+    book.forgetSpell(forget);
 }
 
 void    Warlock::launchSpell(std::string spellname, ATarget const& ref)
 {
-    ASpell *spel = array[spellname];
-    if (spel)
-       spel->launch(ref);
+    ATarget const *test = 0;
+    if (test == &ref)
+        return ;
+    ASpell *temp = book.createSpell(spellname);
+    if (temp)
+        temp->launch(ref);
 }

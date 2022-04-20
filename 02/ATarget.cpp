@@ -13,11 +13,13 @@ ATarget::ATarget() {}
 
 ATarget &ATarget::operator=(ATarget const& other)
 {
-    return (*this = other);
+    type = other.type;
+    return (*this);
 }
+
 ATarget::ATarget(ATarget const& cpy)
 {
-        this->type = cpy.type;
+      *this = cpy;
 }
 
 std::string const& ATarget::getType(void) const { return (this->type); }

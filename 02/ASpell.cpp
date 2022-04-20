@@ -11,14 +11,18 @@ ASpell::~ASpell()
 }
 
 ASpell::ASpell() {}
-ASpell &ASpell::operator=(ASpell const& other)
-{
-    return (*this = other);
-}
+
+ASpell &ASpell::operator=(ASpell const& other) 
+{ 
+    this->name = other.name;
+    this->effects = other.effects;
+    return (*this);
+
+} 
+
 ASpell::ASpell(ASpell const& cpy)
 {
-    this->name = cpy.name;
-    this->effects = cpy.effects;
+    *this = cpy;
 }
 
 

@@ -1,5 +1,5 @@
 #ifndef _SPELLBOOK_HPP_
-#define _SPELLBOOK_HPP
+#define _SPELLBOOK_HPP_
 
 #include <map>
 #include <iterator>

@@ -1,5 +1,5 @@
 #ifndef _WARLOCK_HPP_
-#define _WARLOCK_HPP
+#define _WARLOCK_HPP_
 
 #include <iostream>
 #include <string>
@@ -7,6 +7,7 @@
 #include <iterator>
 #include "ASpell.hpp"
 #include "ATarget.hpp"
+#include "SpellBook.hpp"
 
 class Warlock 
 {
@@ -14,10 +15,12 @@ class Warlock
 
         std::string name;
         std::string title;
-        std::map<std::string, ASpell *> array;
+       // std::map<std::string, ASpell *> array;
         Warlock();
         Warlock &operator=(Warlock const& other);
         Warlock(Warlock const& cpy);
+
+        SpellBook book;
 
     public:
 
@@ -34,6 +37,7 @@ class Warlock
         void    learnSpell(ASpell *ptr);
         void    forgetSpell(std::string forget);
         void    launchSpell(std::string spellname, ATarget const& ref);
+        
 
 };
 
